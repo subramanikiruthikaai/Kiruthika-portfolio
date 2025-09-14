@@ -1,5 +1,5 @@
 export const personalInfo = {
-    name: "Kiruthika",
+    name: "Kiruthika Subramani",
     title: "AI Professional • Data Scientist • Cloud Enthusiast • Author",
     quote: "The best AI solutions don't just solve technical problems – they solve human problems with technical excellence.",
     bio: `As a passionate AI professional, I thrive on building intelligent systems that bridge research, innovation, and real-world impact. My experience as a Data Scientist, Cloud Consultant and Generative AI Engineer across organizations like Bell, AWS, and Certkor.ai has equipped me with the skills to design scalable pipelines, multi-agent frameworks, and cloud-native AI solutions.`,

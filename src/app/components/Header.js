@@ -60,7 +60,7 @@ const Header = ({ darkMode, toggleTheme, activeSection, onNavigate }) => {
                 fontSize: '20px',
                 fontWeight: 'bold'
             }}>
-                Kiruthika
+                Kiruthika Subramani
             </div>
 
             <Menu

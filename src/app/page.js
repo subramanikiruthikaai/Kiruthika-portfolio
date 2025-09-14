@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Layout, FloatButton } from 'antd';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -18,42 +18,44 @@ export default function Home() {
   const { darkMode, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
 
-  // Better scroll detection with throttling
+  // Memoize the scroll handler to prevent unnecessary re-renders
+  const updateActiveSection = useCallback(() => {
+    const sections = ['home', 'about', 'experience', 'achievements', 'books', 'projects', 'contact'];
+    const headerHeight = 80;
+    const scrollPosition = window.scrollY + headerHeight;
+
+    // Find the current section
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const element = document.getElementById(sections[i]);
+      if (element) {
+        const elementTop = element.offsetTop;
+        const elementBottom = elementTop + element.offsetHeight;
+
+        // Check if current scroll position is within this section
+        if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
+          setActiveSection(sections[i]);
+          break;
+        }
+
+        // Special case for the last section
+        if (i === sections.length - 1 && scrollPosition >= elementTop) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    }
+  }, []);
+
+  // Scroll detection with throttling
   useEffect(() => {
     let ticking = false;
 
-    const updateActiveSection = () => {
-      const sections = ['home', 'about', 'experience', 'achievements', 'books', 'projects', 'contact'];
-      const headerHeight = 80; // Height of fixed header + some padding
-      const scrollPosition = window.scrollY + headerHeight;
-
-      // Find the current section
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const element = document.getElementById(sections[i]);
-        if (element) {
-          const elementTop = element.offsetTop;
-          const elementBottom = elementTop + element.offsetHeight;
-
-          // Check if current scroll position is within this section
-          if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
-            setActiveSection(sections[i]);
-            break;
-          }
-
-          // Special case for the last section
-          if (i === sections.length - 1 && scrollPosition >= elementTop) {
-            setActiveSection(sections[i]);
-            break;
-          }
-        }
-      }
-
-      ticking = false;
-    };
-
     const handleScroll = () => {
       if (!ticking) {
-        requestAnimationFrame(updateActiveSection);
+        requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
         ticking = true;
       }
     };
@@ -67,55 +69,12 @@ export default function Home() {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [updateActiveSection]);
 
-  // Alternative: Intersection Observer approach (more modern)
-  useEffect(() => {
-    const observerOptions = {
-      threshold: [0.2, 0.5, 0.8], // Multiple thresholds for better detection
-      rootMargin: '-80px 0px -50% 0px' // Account for header height
-    };
-
-    const observerCallback = (entries) => {
-      // Find the entry with the highest intersection ratio
-      let maxRatio = 0;
-      let activeEntry = null;
-
-      entries.forEach((entry) => {
-        if (entry.intersectionRatio > maxRatio) {
-          maxRatio = entry.intersectionRatio;
-          activeEntry = entry;
-        }
-      });
-
-      // Update active section if we found a good candidate
-      if (activeEntry && activeEntry.intersectionRatio > 0.2) {
-        setActiveSection(activeEntry.target.id);
-      }
-    };
-
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
-
-    // Observe all sections with a small delay to ensure DOM is ready
-    setTimeout(() => {
-      const sections = ['home', 'about', 'experience', 'achievements', 'books', 'projects', 'contact'];
-      sections.forEach((sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          observer.observe(element);
-        } else {
-          console.warn(`Section with id "${sectionId}" not found`);
-        }
-      });
-    }, 100);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const scrollToSection = (sectionId) => {
+  const scrollToSection = useCallback((sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerHeight = 80; // Fixed header height
+      const headerHeight = 80;
       const elementPosition = element.offsetTop - headerHeight;
 
       // Immediately update active section for instant feedback
@@ -126,7 +85,7 @@ export default function Home() {
         behavior: 'smooth'
       });
     }
-  };
+  }, []);
 
   return (
     <div className={`portfolio-container ${darkMode ? 'dark-theme' : 'light-theme'}`}>
@@ -164,7 +123,7 @@ export default function Home() {
               Open Source on GitHub
             </p>
             <p style={{ fontSize: '12px', marginTop: '16px', opacity: 0.6 }}>
-              "The best AI solutions don't just solve technical problems – they solve human problems with technical excellence."
+              &ldquo;The best AI solutions don&apos;t just solve technical problems – they solve human problems with technical excellence.&rdquo;
             </p>
           </div>
         </Footer>
