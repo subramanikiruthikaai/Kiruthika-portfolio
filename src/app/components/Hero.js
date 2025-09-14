@@ -66,7 +66,7 @@ const Hero = ({ onNavigate }) => {
                     opacity: 0.8,
                     animation: 'fadeInUp 1s ease 0.4s both'
                 }}>
-                    "{personalInfo.quote}"
+                    &ldquo;{personalInfo.quote}&rdquo;
                 </p>
 
                 <Space size="large">

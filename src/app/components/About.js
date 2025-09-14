@@ -29,10 +29,10 @@ const About = () => {
                         <Paragraph style={{ fontSize: '16px', lineHeight: '1.8', color: 'var(--text-primary)' }}>
                             Recognized as a Google Developer Expert, IBM Dual Champion, and Google Cloud Champion Innovator,
                             I actively contribute to the global AI community through 200+ talks, blogs, and mentorship.
-                            With 4x cloud certifications and two authored books, I'm deeply committed to making AI accessible and responsible.
+                            With 4x cloud certifications and two authored books, I&apos;m deeply committed to making AI accessible and responsible.
                         </Paragraph>
                         <Paragraph style={{ fontSize: '16px', lineHeight: '1.8', color: 'var(--text-primary)' }}>
-                            Currently, I'm pursuing my Master's at MILA, University of Montreal, where I continue to explore
+                            Currently, I&apos;m pursuing my Master&apos;s at MILA, University of Montreal, where I continue to explore
                             the frontiers of Generative AI, Responsible AI, and Agentic systems.
                         </Paragraph>
                     </Col>
@@ -95,6 +95,7 @@ const About = () => {
                         <Col xs={24} sm={12} key={index}>
                             <Card
                                 size="small"
+                                variant="borderless"
                                 style={{
                                     transition: 'all 0.3s ease',
                                     cursor: 'pointer',
