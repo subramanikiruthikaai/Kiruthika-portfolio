@@ -6,6 +6,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Achievements from './components/Achievements';
+import ImageGallery from './components/ImageGallery'; // Added gallery import
 import Books from './components/Books';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
@@ -18,9 +19,11 @@ export default function Home() {
   const { darkMode, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
 
+  // Updated sections array to include gallery
+  const sections = ['home', 'about', 'experience', 'achievements', 'gallery', 'books', 'projects', 'contact'];
+
   // Memoize the scroll handler to prevent unnecessary re-renders
   const updateActiveSection = useCallback(() => {
-    const sections = ['home', 'about', 'experience', 'achievements', 'books', 'projects', 'contact'];
     const headerHeight = 80;
     const scrollPosition = window.scrollY + headerHeight;
 
@@ -44,7 +47,7 @@ export default function Home() {
         }
       }
     }
-  }, []);
+  }, [sections]);
 
   // Scroll detection with throttling
   useEffect(() => {
@@ -102,6 +105,7 @@ export default function Home() {
           <About />
           <Experience />
           <Achievements />
+          <ImageGallery /> {/* Added gallery component */}
           <Books />
           <Projects />
           <Contact />
@@ -116,11 +120,6 @@ export default function Home() {
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <p style={{ fontSize: '16px', marginBottom: '12px' }}>
               © 2025 Kiruthika. Built with passion for AI and innovation.
-            </p>
-            <p style={{ fontSize: '14px', opacity: 0.8 }}>
-              Crafted with React, Next.js, and Ant Design •
-              Deployed on Vercel •
-              Open Source on GitHub
             </p>
             <p style={{ fontSize: '12px', marginTop: '16px', opacity: 0.6 }}>
               &ldquo;The best AI solutions don&apos;t just solve technical problems – they solve human problems with technical excellence.&rdquo;

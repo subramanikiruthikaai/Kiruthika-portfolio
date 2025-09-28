@@ -1,5 +1,7 @@
 'use client';
-import { Typography, Card, Row, Col, Button, Form, Input, Select, Space, Divider, Tag, Tooltip } from 'antd';
+import { useState } from 'react';
+import { Typography, Card, Row, Col, Button, Form, Input, Select, Space, Divider, Tag, Tooltip, message } from 'antd';
+import emailjs from '@emailjs/browser';
 import {
     MailOutlined,
     LinkedinOutlined,
@@ -17,7 +19,9 @@ import {
     RocketOutlined,
     BulbOutlined,
     HeartOutlined,
-    ClockCircleOutlined
+    ClockCircleOutlined,
+    LoadingOutlined,
+    DownloadOutlined
 } from '@ant-design/icons';
 
 const { Title, Text, Paragraph } = Typography;
@@ -25,8 +29,18 @@ const { TextArea } = Input;
 const { Option } = Select;
 
 const Contact = () => {
+    const [form] = Form.useForm();
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    // EmailJS Configuration - Replace with your actual values
+    const EMAILJS_CONFIG = {
+        serviceId: 'YOUR_SERVICE_ID',        // Replace with your EmailJS service ID
+        templateId: 'YOUR_TEMPLATE_ID',      // Replace with your EmailJS template ID
+        publicKey: 'YOUR_PUBLIC_KEY'         // Replace with your EmailJS public key
+    };
+
     const contactInfo = {
-        email: "kiruthika@example.com",
+        email: "kiruthikas2020ai@gmail.com",
         linkedin: "https://linkedin.com/in/kiruthika",
         twitter: "https://twitter.com/kiruthika_ai",
         github: "https://github.com/Kiruthika162003",
@@ -125,9 +139,52 @@ const Contact = () => {
         }
     ];
 
-    const onFinish = (values) => {
-        console.log('Form submitted:', values);
-        // Handle form submission here
+    const onFinish = async (values) => {
+        setIsSubmitting(true);
+
+        try {
+            // Prepare email parameters
+            const templateParams = {
+                from_name: values.name,
+                from_email: values.email,
+                collaboration_type: values.collaboration,
+                subject: values.subject,
+                message: values.message,
+                to_email: contactInfo.email,
+                // Add timestamp for reference
+                submitted_at: new Date().toLocaleString()
+            };
+
+            // Send email using EmailJS
+            const result = await emailjs.send(
+                EMAILJS_CONFIG.serviceId,
+                EMAILJS_CONFIG.templateId,
+                templateParams,
+                EMAILJS_CONFIG.publicKey
+            );
+
+            console.log('Email sent successfully:', result);
+
+            // Show success message
+            message.success({
+                content: 'Message sent successfully! I\'ll get back to you within 24-48 hours.',
+                duration: 5,
+            });
+
+            // Reset form
+            form.resetFields();
+
+        } catch (error) {
+            console.error('Email sending failed:', error);
+
+            // Show error message
+            message.error({
+                content: 'Failed to send message. Please try again or contact me directly via email.',
+                duration: 5,
+            });
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const CollaborationCard = ({ collab }) => (
@@ -251,6 +308,7 @@ const Contact = () => {
                             }}
                         >
                             <Form
+                                form={form}
                                 layout="vertical"
                                 onFinish={onFinish}
                                 autoComplete="off"
@@ -313,8 +371,15 @@ const Contact = () => {
                                 </Form.Item>
 
                                 <Form.Item>
-                                    <Button type="primary" htmlType="submit" icon={<SendOutlined />} block>
-                                        Send Message
+                                    <Button
+                                        type="primary"
+                                        htmlType="submit"
+                                        icon={isSubmitting ? <LoadingOutlined /> : <SendOutlined />}
+                                        loading={isSubmitting}
+                                        block
+                                        disabled={isSubmitting}
+                                    >
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </Button>
                                 </Form.Item>
                             </Form>
@@ -454,20 +519,27 @@ const Contact = () => {
                         or want to collaborate on research, I&apos;m here to help make it happen.
                     </Paragraph>
                     <Space size="large">
-                        <Button size="large" style={{ background: 'white', color: '#667eea', border: 'none' }}>
+                        {/* <Button size="large" style={{ background: 'white', color: '#667eea', border: 'none' }}>
                             Schedule a Call
-                        </Button>
-                        <Button size="large" type="default" ghost>
+                        </Button> */}
+                        <Button
+                            size="large"
+                            type="default"
+                            ghost
+                            icon={<DownloadOutlined />}
+                            onClick={() => {
+                                // Create download link
+                                const link = document.createElement('a');
+                                link.href = '/document/Kiruthika_CV.pdf';
+                                link.download = 'Kiruthika_CV.pdf';
+                                document.body.appendChild(link);
+                                link.click();
+                                document.body.removeChild(link);
+                            }}
+                        >
                             Download CV
                         </Button>
                     </Space>
-                </div>
-
-                {/* Response Time */}
-                <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                    <Text type="secondary">
-                        💡 I typically respond within 24-48 hours. For urgent inquiries, please mention it in the subject line.
-                    </Text>
                 </div>
             </div>
         </section>

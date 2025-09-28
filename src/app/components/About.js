@@ -15,7 +15,7 @@ const About = () => {
                 <Row gutter={[32, 32]} align="middle">
                     <Col xs={24} md={8}>
                         <div style={{ textAlign: 'center' }}>
-                            <Avatar size={200} src="/images/profile.jpg" />
+                            <Avatar size={200} src="/gallery/profile.jpeg" />
                             <div style={{ marginTop: '20px' }}>
                                 <Title level={4}>{personalInfo.name}</Title>
                                 <Text type="secondary">AI Professional & Data Scientist</Text>

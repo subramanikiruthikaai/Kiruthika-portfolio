@@ -8,9 +8,10 @@ import {
     TrophyOutlined,
     BookOutlined,
     ProjectOutlined,
-    ContactsOutlined,    // ✅ This is imported
-    SunOutlined,         // ✅ Add this - you're using it but not importing
-    MoonOutlined,        // ✅ Add this - you're using it but not importing
+    ContactsOutlined,
+    SunOutlined,
+    MoonOutlined,
+    PictureOutlined,
 } from '@ant-design/icons';
 
 const { Header: AntHeader } = Layout;
@@ -22,6 +23,7 @@ const Header = ({ darkMode, toggleTheme, activeSection, onNavigate }) => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 50);
         };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
@@ -31,9 +33,10 @@ const Header = ({ darkMode, toggleTheme, activeSection, onNavigate }) => {
         { key: 'about', icon: <UserOutlined />, label: 'About' },
         { key: 'experience', icon: <CalendarOutlined />, label: 'Experience' },
         { key: 'achievements', icon: <TrophyOutlined />, label: 'Achievements' },
+        { key: 'gallery', icon: <PictureOutlined />, label: 'Gallery' }, // Added gallery
         { key: 'books', icon: <BookOutlined />, label: 'Books' },
         { key: 'projects', icon: <ProjectOutlined />, label: 'Projects' },
-        { key: 'contact', icon: <ContactsOutlined />, label: 'Contact' }, // ✅ Changed to ContactsOutlined
+        { key: 'contact', icon: <ContactsOutlined />, label: 'Contact' },
     ];
 
     const headerStyle = {
@@ -60,7 +63,7 @@ const Header = ({ darkMode, toggleTheme, activeSection, onNavigate }) => {
                 fontSize: '20px',
                 fontWeight: 'bold'
             }}>
-                Kiruthika Subramani
+                Kiruthika
             </div>
 
             <Menu
