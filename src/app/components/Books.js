@@ -209,10 +209,10 @@ const Books = () => {
 
                         <div style={{ marginBottom: '16px' }}>
                             <Space align="center">
-                                <Rate disabled defaultValue={book.rating} allowHalf />
-                                <Text strong>{book.rating}</Text>
-                                <Text type="secondary">({book.reviews} reviews)</Text>
-                                <Text strong style={{ color: '#1890ff', fontSize: '18px' }}>{book.price}</Text>
+                                {/* <Rate disabled defaultValue={book.rating} allowHalf /> */}
+                                {/* <Text strong>{book.rating}</Text> */}
+                                {/* <Text type="secondary">({book.reviews} reviews)</Text>
+                                <Text strong style={{ color: '#1890ff', fontSize: '18px' }}>{book.price}</Text> */}
                             </Space>
                         </div>
 
@@ -232,7 +232,7 @@ const Books = () => {
                             </div>
                         </div>
 
-                        <Space>
+                        {/* <Space>
                             <Button type="primary" icon={<ShoppingCartOutlined />}>
                                 Buy Now
                             </Button>
@@ -241,7 +241,7 @@ const Books = () => {
                             </Button>
                             <Button icon={<ShareAltOutlined />} />
                             <Button icon={<HeartOutlined />} />
-                        </Space>
+                        </Space> */}
                     </div>
                 </Col>
             </Row>
@@ -383,7 +383,7 @@ const Books = () => {
                             <BookCard book={book} />
 
                             {/* Testimonials for each book */}
-                            <div style={{ marginTop: '24px' }}>
+                            {/* <div style={{ marginTop: '24px' }}>
                                 <Title level={5} style={{ color: 'var(--text-primary)', marginBottom: '16px' }}>
                                     What Readers Say:
                                 </Title>
@@ -394,7 +394,7 @@ const Books = () => {
                                         </Col>
                                     ))}
                                 </Row>
-                            </div>
+                            </div> */}
 
                             {index < booksData.length - 1 && <Divider style={{ margin: '48px 0' }} />}
                         </Col>
@@ -404,14 +404,14 @@ const Books = () => {
                 <Divider style={{ margin: '60px 0' }} />
 
                 {/* Upcoming Book */}
-                <Row justify="center">
+                {/* <Row justify="center">
                     <Col xs={24} lg={16}>
                         <UpcomingBookCard />
                     </Col>
-                </Row>
+                </Row> */}
 
                 {/* Writing Stats */}
-                <Row gutter={[24, 24]} style={{ marginTop: '60px', textAlign: 'center' }}>
+                {/* <Row gutter={[24, 24]} style={{ marginTop: '60px', textAlign: 'center' }}>
                     <Col xs={12} sm={6}>
                         <div style={{ padding: '20px' }}>
                             <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#1890ff', marginBottom: '8px' }}>
@@ -444,7 +444,7 @@ const Books = () => {
                             <Text type="secondary">Total Reviews</Text>
                         </div>
                     </Col>
-                </Row>
+                </Row> */}
             </div>
         </section>
     );

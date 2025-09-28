@@ -41,7 +41,7 @@ const Contact = () => {
 
     const contactInfo = {
         email: "kiruthikas2020ai@gmail.com",
-        linkedin: "https://linkedin.com/in/kiruthika",
+        linkedin: "https://www.linkedin.com/in/techwithkrithi/",
         twitter: "https://twitter.com/kiruthika_ai",
         github: "https://github.com/Kiruthika162003",
         location: "Montreal, Canada / Remote",
@@ -102,13 +102,13 @@ const Contact = () => {
             color: "#333",
             description: "Open source projects and code repositories"
         },
-        {
-            platform: "Twitter",
-            icon: <TwitterOutlined />,
-            url: contactInfo.twitter,
-            color: "#1da1f2",
-            description: "Tech insights and industry discussions"
-        },
+        // {
+        //     platform: "Twitter",
+        //     icon: <TwitterOutlined />,
+        //     url: contactInfo.twitter,
+        //     color: "#1da1f2",
+        //     description: "Tech insights and industry discussions"
+        // },
         {
             platform: "Email",
             icon: <MailOutlined />,
@@ -120,22 +120,16 @@ const Contact = () => {
 
     const upcomingEvents = [
         {
-            event: "AI Ethics Workshop",
-            date: "March 15, 2025",
-            location: "Montreal, Canada",
-            type: "Workshop"
+            event: "DEVFEST DC 2025",
+            date: "Oct 3, 2025",
+            location: "GMU Fuse at Mason Square, DC",
+            type: "Conference"
         },
         {
-            event: "Generative AI Conference",
-            date: "April 22, 2025",
-            location: "San Francisco, USA",
-            type: "Keynote"
-        },
-        {
-            event: "Women in Tech Summit",
-            date: "May 10, 2025",
-            location: "Toronto, Canada",
-            type: "Panel"
+            event: "WAT.DEV FEST 2025",
+            date: "oct 17,28 2025",
+            location: "Waterloo, Canada",
+            type: "Conference"
         }
     ];
 

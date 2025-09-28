@@ -1,22 +1,21 @@
 'use client';
-import { Typography, Card, Row, Col, Button, Tag, Space, Image, Badge, Tooltip } from 'antd';
+import { Typography, Card, Row, Col, Button, Tag, Space, Badge, Tooltip } from 'antd';
 import {
     GithubOutlined,
     LinkOutlined,
     PlayCircleOutlined,
     StarOutlined,
     ForkOutlined,
-    EyeOutlined,
+    BranchesOutlined,
+    TeamOutlined,
     RobotOutlined,
     CloudOutlined,
     DatabaseOutlined,
     CodeOutlined,
-    BranchesOutlined,
-    TeamOutlined,
-    GlobalOutlined,
-    ThunderboltOutlined,
     SafetyCertificateOutlined,
-    ExperimentOutlined
+    ExperimentOutlined,
+    BookOutlined,
+    BulbOutlined
 } from '@ant-design/icons';
 
 const { Title, Text, Paragraph } = Typography;
@@ -25,180 +24,177 @@ const Projects = () => {
     const featuredProjects = [
         {
             id: 1,
-            title: "Multi-Agent AI Framework",
-            subtitle: "Scalable AI Agent Orchestration System",
-            description: "A comprehensive framework for building and deploying multi-agent AI systems with advanced coordination, communication protocols, and scalable architecture for enterprise applications.",
-            longDescription: "This project addresses the growing need for coordinated AI systems that can work together to solve complex problems. The framework includes agent discovery, load balancing, fault tolerance, and real-time monitoring capabilities.",
-            category: "AI/ML",
+            title: "Clinical Risk Prediction System with LLM Integration",
+            subtitle: "Multilingual Pregnancy Risk Scoring Pipeline",
+            description: "Built an end-to-end pipeline for multilingual pregnancy risk scoring that improved diagnostic precision by 23%, reduced triage time by 40%, and enabled real-time voice-based feedback in 3 languages.",
+            category: "Healthcare AI",
             status: "Active",
             year: "2024",
-            thumbnail: "/api/placeholder/400/250",
-            technologies: ["Python", "FastAPI", "Redis", "Docker", "Kubernetes", "TensorFlow", "gRPC"],
+            technologies: ["Python", "LLMs", "NLP", "Voice Recognition", "Flask", "TensorFlow"],
             features: [
-                "Dynamic agent discovery and registration",
-                "Load balancing across agent instances",
-                "Real-time communication protocols",
-                "Fault tolerance and recovery mechanisms",
-                "Comprehensive monitoring dashboard",
-                "RESTful API with authentication"
+                "Multilingual risk assessment (3 languages)",
+                "Real-time voice-based feedback system",
+                "23% improvement in diagnostic precision",
+                "40% reduction in patient triage time",
+                "End-to-end clinical pipeline integration",
+                "Advanced LLM integration for medical insights"
             ],
             metrics: {
-                stars: 1247,
-                forks: 203,
-                issues: 12,
-                contributors: 8
+                stars: 15,
+                forks: 4,
+                issues: 2,
+                contributors: 1
             },
             links: {
-                github: "https://github.com/Kiruthika162003/multi-agent-framework",
-                demo: "https://demo.multi-agent.dev",
-                docs: "https://docs.multi-agent.dev"
-            },
-            color: "#1890ff",
-            icon: <RobotOutlined />
-        },
-        {
-            id: 2,
-            title: "Sustainable AI Aviation Analytics",
-            subtitle: "Winner - Bombardier & TCS Challenge",
-            description: "AI-powered solution for optimizing aviation fuel consumption and reducing carbon emissions through predictive analytics and real-time flight optimization algorithms.",
-            longDescription: "This award-winning project combines machine learning with aviation domain expertise to create actionable insights for sustainable aviation. The system processes real-time flight data to optimize routes and reduce environmental impact.",
-            category: "Climate Tech",
-            status: "Completed",
-            year: "2024",
-            thumbnail: "/api/placeholder/400/250",
-            technologies: ["Python", "scikit-learn", "Apache Kafka", "React", "AWS", "PostgreSQL"],
-            features: [
-                "Real-time flight data processing",
-                "Predictive fuel consumption models",
-                "Route optimization algorithms",
-                "Carbon footprint tracking",
-                "Interactive analytics dashboard",
-                "Integration with aviation APIs"
-            ],
-            metrics: {
-                stars: 892,
-                forks: 156,
-                issues: 5,
-                contributors: 4
-            },
-            links: {
-                github: "https://github.com/Kiruthika162003/sustainable-aviation-ai",
-                demo: "https://aviation-analytics.vercel.app",
-                docs: "https://docs.aviation-ai.com"
-            },
-            color: "#52c41a",
-            icon: <GlobalOutlined />
-        },
-        {
-            id: 3,
-            title: "Responsible AI Toolkit",
-            subtitle: "Ethics-First AI Development Framework",
-            description: "Open-source toolkit for building ethical AI systems with built-in bias detection, fairness metrics, explainability features, and comprehensive audit trails.",
-            longDescription: "As AI systems become more prevalent, ensuring they are fair, transparent, and ethical is crucial. This toolkit provides developers with the tools they need to build responsible AI systems from the ground up.",
-            category: "AI Ethics",
-            status: "Active",
-            year: "2023",
-            thumbnail: "/api/placeholder/400/250",
-            technologies: ["Python", "PyTorch", "Streamlit", "MLflow", "MongoDB", "Docker"],
-            features: [
-                "Automated bias detection algorithms",
-                "Fairness metrics calculation",
-                "Model explainability tools",
-                "Audit trail generation",
-                "Interactive bias visualization",
-                "Integration with popular ML frameworks"
-            ],
-            metrics: {
-                stars: 2156,
-                forks: 387,
-                issues: 23,
-                contributors: 15
-            },
-            links: {
-                github: "https://github.com/Kiruthika162003/responsible-ai-toolkit",
-                demo: "https://responsible-ai.streamlit.app",
-                docs: "https://responsible-ai-toolkit.readthedocs.io"
+                github: "https://github.com/Kiruthika162003",
+                demo: null,
+                docs: null
             },
             color: "#722ed1",
             icon: <SafetyCertificateOutlined />
         },
         {
-            id: 4,
-            title: "GenAI Content Pipeline",
-            subtitle: "Automated Content Generation System",
-            description: "Enterprise-grade content generation pipeline using state-of-the-art language models with custom fine-tuning, quality control, and multi-modal output support.",
-            longDescription: "This system helps organizations automate their content creation workflows while maintaining quality and brand consistency. It supports text, image, and video generation with advanced customization options.",
-            category: "Generative AI",
+            id: 2,
+            title: "LLM–SciBERT Classification Pipeline",
+            subtitle: "Research Paper Classification with 94% Accuracy",
+            description: "Developed a hybrid model combining SciBERT embeddings and fine-tuned LLMs to classify research abstracts, achieving 94% accuracy and 90% F1-score across 10 classes, automating classification for 5,000+ papers.",
+            category: "NLP Research",
             status: "Active",
-            year: "2023",
-            thumbnail: "/api/placeholder/400/250",
-            technologies: ["Python", "Transformers", "CUDA", "Redis", "PostgreSQL", "Next.js"],
+            year: "2024",
+            technologies: ["Python", "SciBERT", "Transformers", "PyTorch", "HuggingFace", "Pandas"],
             features: [
-                "Multi-model content generation",
-                "Custom fine-tuning pipelines",
-                "Quality control mechanisms",
-                "Brand consistency enforcement",
-                "Batch processing capabilities",
-                "RESTful API with rate limiting"
+                "Hybrid SciBERT + LLM architecture",
+                "94% classification accuracy achieved",
+                "90% F1-score across 10 research categories",
+                "Automated processing of 5,000+ research papers",
+                "Fine-tuned transformer models",
+                "Scalable research paper categorization"
             ],
             metrics: {
-                stars: 1689,
-                forks: 234,
-                issues: 18,
-                contributors: 6
+                stars: 28,
+                forks: 8,
+                issues: 1,
+                contributors: 1
             },
             links: {
-                github: "https://github.com/Kiruthika162003/genai-content-pipeline",
-                demo: "https://genai-demo.vercel.app",
-                docs: "https://genai-pipeline-docs.vercel.app"
+                github: "https://github.com/Kiruthika162003",
+                demo: null,
+                docs: null
+            },
+            color: "#1890ff",
+            icon: <BulbOutlined />
+        },
+        {
+            id: 3,
+            title: "Medical Test Web Application",
+            subtitle: "Multi-Disease Prediction Platform",
+            description: "Comprehensive web application for predicting multiple diseases including Malaria, Pneumonia, Diabetes, Cancer, Heart disease, Liver disease, and Kidney disease using machine learning models.",
+            category: "Healthcare ML",
+            status: "Completed",
+            year: "2020",
+            technologies: ["Python", "Flask", "OpenCV", "Scikit-learn", "TensorFlow", "HTML", "CSS"],
+            features: [
+                "7 different disease prediction models",
+                "Web-based interface for easy access",
+                "Image analysis for Malaria and Pneumonia",
+                "CSV datasets for training and validation",
+                "Deployed on Heroku cloud platform",
+                "Interactive forms for patient data input"
+            ],
+            metrics: {
+                stars: 12,
+                forks: 25,
+                issues: 3,
+                contributors: 1
+            },
+            links: {
+                github: "https://github.com/Kiruthika162003/Medical-test-web-app",
+                docs: null
+            },
+            color: "#52c41a",
+            icon: <ExperimentOutlined />
+        },
+        {
+            id: 4,
+            title: "NHL Hockey Data Science Project",
+            subtitle: "Advanced Sports Analytics with Interactive Visualizations",
+            description: "Comprehensive NHL data analysis project using the NHL stats API for data acquisition, processing, and advanced visualizations including interactive shot maps and performance analytics.",
+            category: "Data Science",
+            status: "Completed",
+            year: "2023",
+            technologies: ["Python", "Pandas", "Plotly", "NHL API", "Jupyter", "Data Visualization"],
+            features: [
+                "NHL stats API integration and data caching",
+                "Interactive debugging tools for play-by-play data",
+                "Advanced shot maps and heatmap visualizations",
+                "Exploratory data analysis with statistical insights",
+                "Team and player performance analytics",
+                "Comprehensive data processing pipeline"
+            ],
+            metrics: {
+                stars: 6,
+                forks: 2,
+                issues: 0,
+                contributors: 3
+            },
+            links: {
+                github: "https://github.com/Kiruthika162003/IFT-6758B-Data-Science-Milestone-1",
+                demo: null,
+                docs: null
             },
             color: "#fa8c16",
-            icon: <ExperimentOutlined />
+            icon: <DatabaseOutlined />
         }
     ];
 
     const smallerProjects = [
         {
-            title: "AI Model Monitoring Dashboard",
-            description: "Real-time monitoring and alerting system for ML models in production",
-            tech: ["Python", "Grafana", "Prometheus"],
-            stars: 456,
-            color: "#13c2c2"
+            title: "Responsible AI - Fairness Analysis",
+            description: "Machine learning fairness evaluation and bias mitigation using Fairlearn library with demographic parity and equalized odds metrics",
+            tech: ["Python", "Fairlearn", "Scikit-learn", "Jupyter"],
+            stars: 3,
+            color: "#13c2c2",
+            github: "https://github.com/Kiruthika162003/Responsible-AI---Fairness"
         },
         {
-            title: "Natural Language to SQL",
-            description: "Convert natural language queries to SQL using transformer models",
-            tech: ["Python", "BERT", "SQLAlchemy"],
-            stars: 678,
-            color: "#eb2f96"
+            title: "Named Entity Recognition with BERT",
+            description: "NER implementation using BERT achieving 78.5% F1-score, 81.2% precision on 838K+ entities across 17 categories",
+            tech: ["Python", "BERT", "Transformers", "NLP"],
+            stars: 8,
+            color: "#eb2f96",
+            github: "https://github.com/Kiruthika162003/Named-Entity-Recognition-NER-with-BERT"
         },
         {
-            title: "Federated Learning Framework",
-            description: "Privacy-preserving machine learning across distributed datasets",
-            tech: ["Python", "PyTorch", "gRPC"],
-            stars: 789,
-            color: "#f5222d"
+            title: "Email Spam Classification",
+            description: "Spam detection using TF-IDF vectorization and SVM on TREC 2007 and Enron datasets with high accuracy",
+            tech: ["Python", "TF-IDF", "SVM", "Scikit-learn"],
+            stars: 5,
+            color: "#f5222d",
+            github: "https://github.com/Kiruthika162003/Email-Spam-Classification"
         },
         {
-            title: "AI-Powered Code Review",
-            description: "Automated code review system using large language models",
-            tech: ["Python", "OpenAI API", "GitHub API"],
-            stars: 543,
-            color: "#096dd9"
+            title: "IBM Watson Speech-to-Text",
+            description: "Speech recognition implementation using IBM Watson API with real-time audio transcription capabilities",
+            tech: ["Python", "IBM Watson", "Speech Recognition"],
+            stars: 3,
+            color: "#096dd9",
+            github: "https://github.com/Kiruthika162003/-IBM-Watson-Speech-to-Text-"
         },
         {
-            title: "Smart Data Labeling Tool",
-            description: "ML-assisted data annotation platform with active learning",
-            tech: ["React", "Python", "TensorFlow"],
-            stars: 321,
-            color: "#389e0d"
+            title: "Sentiment Analysis with NLTK",
+            description: "Social media sentiment analysis tool for tweet classification into positive, negative, or neutral sentiments",
+            tech: ["Python", "NLTK", "NLP", "Sentiment Analysis"],
+            stars: 1,
+            color: "#389e0d",
+            github: "https://github.com/Kiruthika162003/Sentimental-Analysis-using-NLTK"
         },
         {
-            title: "Voice AI Assistant",
-            description: "Custom voice assistant with domain-specific knowledge",
-            tech: ["Python", "Speech Recognition", "NLP"],
-            stars: 234,
-            color: "#d48806"
+            title: "Additional AI Projects",
+            description: "Collection of machine learning experiments, data processing scripts, and AI research implementations",
+            tech: ["Python", "TensorFlow", "Data Science"],
+            stars: 2,
+            color: "#d48806",
+            github: "https://github.com/Kiruthika162003"
         }
     ];
 
@@ -209,8 +205,7 @@ const Projects = () => {
                 background: 'var(--bg-primary)',
                 border: '1px solid var(--border-color)',
                 height: '100%',
-                transition: 'all 0.3s ease',
-                overflow: 'hidden'
+                transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-8px)';
@@ -220,47 +215,45 @@ const Projects = () => {
                 e.currentTarget.style.transform = 'translateY(0)';
                 e.currentTarget.style.boxShadow = 'none';
             }}
-            cover={
-                <div style={{ position: 'relative', overflow: 'hidden' }}>
-                    <Image
-                        alt={project.title}
-                        src={project.thumbnail}
-                        style={{ height: '200px', objectFit: 'cover' }}
-                        fallback="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjI1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiNjY2MiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Qcm9qZWN0IEltYWdlPC90ZXh0Pjwvc3ZnPg=="
-                    />
-                    <div style={{
-                        position: 'absolute',
-                        top: '12px',
-                        right: '12px',
-                        display: 'flex',
-                        gap: '8px'
-                    }}>
+        >
+            <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                {/* Project Header */}
+                <div style={{
+                    display: 'flex',
+                    alignItems: 'flex-start',
+                    justifyContent: 'space-between',
+                    marginBottom: '16px'
+                }}>
+                    <div style={{ flex: 1 }}>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '12px',
+                            marginBottom: '8px'
+                        }}>
+                            <div style={{
+                                fontSize: '24px',
+                                color: project.color,
+                                background: `${project.color}15`,
+                                padding: '8px',
+                                borderRadius: '8px'
+                            }}>
+                                {project.icon}
+                            </div>
+                            <div>
+                                <Title level={4} style={{ margin: 0, color: 'var(--text-primary)' }}>
+                                    {project.title}
+                                </Title>
+                                <Text type="secondary" style={{ fontSize: '14px' }}>
+                                    {project.subtitle}
+                                </Text>
+                            </div>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px' }}>
                         <Badge count={project.status} style={{ backgroundColor: project.color }} />
                         <Badge count={project.year} style={{ backgroundColor: '#666' }} />
                     </div>
-                    <div style={{
-                        position: 'absolute',
-                        top: '12px',
-                        left: '12px',
-                        fontSize: '24px',
-                        color: project.color,
-                        background: 'rgba(255,255,255,0.9)',
-                        padding: '8px',
-                        borderRadius: '50%'
-                    }}>
-                        {project.icon}
-                    </div>
-                </div>
-            }
-        >
-            <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                <div style={{ marginBottom: '12px' }}>
-                    <Title level={4} style={{ margin: 0, color: 'var(--text-primary)' }}>
-                        {project.title}
-                    </Title>
-                    <Text type="secondary" style={{ fontSize: '14px' }}>
-                        {project.subtitle}
-                    </Text>
                 </div>
 
                 <Tag color={project.color} style={{ alignSelf: 'flex-start', marginBottom: '12px' }}>
@@ -272,12 +265,30 @@ const Projects = () => {
                         color: 'var(--text-secondary)',
                         flex: 1,
                         fontSize: '14px',
-                        lineHeight: '1.5'
+                        lineHeight: '1.5',
+                        marginBottom: '16px'
                     }}
                 >
                     {project.description}
                 </Paragraph>
 
+                {/* Features */}
+                <div style={{ marginBottom: '16px' }}>
+                    <Text strong style={{ color: 'var(--text-primary)', fontSize: '12px' }}>Key Features:</Text>
+                    <ul style={{ marginTop: '6px', paddingLeft: '16px', margin: '6px 0' }}>
+                        {project.features.slice(0, 3).map((feature, index) => (
+                            <li key={index} style={{
+                                color: 'var(--text-secondary)',
+                                fontSize: '12px',
+                                marginBottom: '2px'
+                            }}>
+                                {feature}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                {/* Tech Stack */}
                 <div style={{ marginBottom: '16px' }}>
                     <Text strong style={{ color: 'var(--text-primary)', fontSize: '12px' }}>Tech Stack:</Text>
                     <div style={{ marginTop: '6px' }}>
@@ -294,6 +305,7 @@ const Projects = () => {
                     </div>
                 </div>
 
+                {/* Metrics */}
                 <Space style={{ marginBottom: '16px', justifyContent: 'space-between', width: '100%' }}>
                     <Space size="small">
                         <Tooltip title="GitHub Stars">
@@ -317,18 +329,27 @@ const Projects = () => {
                     </Space>
                 </Space>
 
-                <Space style={{ justifyContent: 'space-between', width: '100%' }}>
-                    <Space>
-                        <Tooltip title="View Code">
-                            <Button size="small" icon={<GithubOutlined />} href={project.links.github} target="_blank" />
-                        </Tooltip>
+                {/* Action Buttons */}
+                <Space style={{ justifyContent: 'flex-start', width: '100%' }}>
+                    <Tooltip title="View Code">
+                        <Button size="small" icon={<GithubOutlined />} href={project.links.github} target="_blank">
+                            Code
+                        </Button>
+                    </Tooltip>
+                    {project.links.demo && (
                         <Tooltip title="Live Demo">
-                            <Button size="small" icon={<PlayCircleOutlined />} href={project.links.demo} target="_blank" />
+                            <Button size="small" icon={<PlayCircleOutlined />} href={project.links.demo} target="_blank">
+                                Demo
+                            </Button>
                         </Tooltip>
+                    )}
+                    {project.links.docs && (
                         <Tooltip title="Documentation">
-                            <Button size="small" icon={<LinkOutlined />} href={project.links.docs} target="_blank" />
+                            <Button size="small" icon={<LinkOutlined />} href={project.links.docs} target="_blank">
+                                Docs
+                            </Button>
                         </Tooltip>
-                    </Space>
+                    )}
                 </Space>
             </div>
         </Card>
@@ -353,6 +374,7 @@ const Projects = () => {
                 e.currentTarget.style.transform = 'translateX(0)';
                 e.currentTarget.style.boxShadow = 'none';
             }}
+            onClick={() => window.open(project.github, '_blank')}
         >
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '8px' }}>
                 <Title level={5} style={{ margin: 0, color: 'var(--text-primary)' }}>
@@ -398,8 +420,7 @@ const Projects = () => {
                     marginBottom: '60px',
                     color: 'var(--text-secondary)'
                 }}>
-                    Innovative AI solutions that bridge research and real-world applications,
-                    focusing on scalability, ethics, and social impact.
+                    Open-source projects showcasing AI, machine learning, and software development expertise
                 </Paragraph>
 
                 {/* Featured Projects */}
@@ -458,33 +479,33 @@ const Projects = () => {
                     <Col xs={12} sm={6}>
                         <div style={{ padding: '20px' }}>
                             <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#1890ff', marginBottom: '8px' }}>
-                                25+
+                                20+
                             </div>
-                            <Text type="secondary">Open Source Projects</Text>
+                            <Text type="secondary">Public Repositories</Text>
                         </div>
                     </Col>
                     <Col xs={12} sm={6}>
                         <div style={{ padding: '20px' }}>
                             <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#52c41a', marginBottom: '8px' }}>
-                                8.5K+
+                                5+
                             </div>
-                            <Text type="secondary">Total GitHub Stars</Text>
+                            <Text type="secondary">Programming Languages</Text>
                         </div>
                     </Col>
                     <Col xs={12} sm={6}>
                         <div style={{ padding: '20px' }}>
                             <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#fa8c16', marginBottom: '8px' }}>
-                                45+
+                                100+
                             </div>
-                            <Text type="secondary">Contributors</Text>
+                            <Text type="secondary">Commits This Year</Text>
                         </div>
                     </Col>
                     <Col xs={12} sm={6}>
                         <div style={{ padding: '20px' }}>
                             <div style={{ fontSize: '32px', fontWeight: 'bold', color: '#722ed1', marginBottom: '8px' }}>
-                                15+
+                                10+
                             </div>
-                            <Text type="secondary">Awards & Recognition</Text>
+                            <Text type="secondary">Active Projects</Text>
                         </div>
                     </Col>
                 </Row>

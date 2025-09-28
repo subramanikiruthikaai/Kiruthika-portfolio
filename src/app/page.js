@@ -119,7 +119,7 @@ export default function Home() {
         }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <p style={{ fontSize: '16px', marginBottom: '12px' }}>
-              © 2025 Kiruthika. Built with passion for AI and innovation.
+              © 2025 Kiruthika Subramani. Built with passion for AI and innovation.
             </p>
             <p style={{ fontSize: '12px', marginTop: '16px', opacity: 0.6 }}>
               &ldquo;The best AI solutions don&apos;t just solve technical problems – they solve human problems with technical excellence.&rdquo;
