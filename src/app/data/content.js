@@ -11,29 +11,54 @@ export const personalInfo = {
 
 export const skills = [
     {
-        category: "Languages & Tools",
-        items: ["Python", "R", "Java", "SQL", "Git"],
+        category: "Programming Languages",
+        items: ["Python", "R", "Java", "SQL"],
         color: "#1890ff"
     },
     {
-        category: "ML & AI",
-        items: ["Supervised/Unsupervised Learning", "Transformers", "LLMs", "Feature Engineering", "Model Evaluation"],
-        color: "#52c41a"
-    },
-    {
-        category: "NLP & GenAI",
-        items: ["Text Classification", "Prompt Engineering", "Chatbots", "Semantic Search", "RAG"],
-        color: "#fa8c16"
-    },
-    {
-        category: "Cloud & MLOps",
-        items: ["AWS", "GCP", "Docker", "CI/CD", "SageMaker", "Vertex AI"],
+        category: "Generative AI",
+        items: ["LLM Fine-tuning", "Prompt Engineering", "RAG", "Graph RAG", "Model Chaining", "LangChain", "Agentic AI"],
         color: "#722ed1"
     },
     {
-        category: "Cloud Infrastructure",
-        items: ["VPC", "Load Balancing", "Container Networking", "Packet Analysis"],
+        category: "Machine Learning",
+        items: ["Supervised Learning", "Unsupervised Learning", "Deep Learning", "Feature Engineering", "Model Evaluation", "Hyperparameter Tuning"],
+        color: "#52c41a"
+    },
+    {
+        category: "Natural Language Processing",
+        items: ["Transformers", "BERT", "Text Classification", "Named Entity Recognition", "Semantic Search", "Sentiment Analysis"],
+        color: "#fa8c16"
+    },
+    {
+        category: "Responsible AI",
+        items: ["Bias Detection", "Fairness Metrics", "Model Explainability", "AI Ethics", "Audit Trails"],
         color: "#eb2f96"
+    },
+    {
+        category: "Cloud Platforms - AWS",
+        items: ["SageMaker", "Bedrock", "Lambda", "S3", "EC2", "CloudWatch"],
+        color: "#ff9900"
+    },
+    {
+        category: "Cloud Platforms - GCP",
+        items: ["Vertex AI", "BigQuery", "Cloud Functions", "Cloud Storage", "AI Platform"],
+        color: "#4285f4"
+    },
+    {
+        category: "MLOps & Infrastructure",
+        items: ["Docker", "Kubernetes", "CI/CD", "Model Deployment", "VPC", "Load Balancing"],
+        color: "#13c2c2"
+    },
+    {
+        category: "Data Science & Analytics",
+        items: ["Data Analysis", "Statistical Modeling", "Data Visualization", "Exploratory Data Analysis", "PowerBI"],
+        color: "#9254de"
+    },
+    {
+        category: "Development Tools",
+        items: ["Git", "Jupyter Notebook", "VS Code", "Linux", "API Development"],
+        color: "#096dd9"
     }
 ];
 

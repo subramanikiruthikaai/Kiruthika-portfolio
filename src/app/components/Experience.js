@@ -39,15 +39,15 @@ const Experience = () => {
 
     const workExperience = [
         {
-            title: "Generative AI Engineer",
-            company: "Certkor.ai",
-            period: "2023 - 2024",
-            location: "Remote",
-            description: "Designed and implemented scalable AI pipelines and multi-agent frameworks. Led development of conversational AI systems and automated content generation tools.",
-            technologies: ["Python", "TensorFlow", "LangChain", "AWS", "Docker"],
-            achievements: ["Improved model accuracy by 25%", "Reduced processing time by 40%", "Led team of 3 engineers"],
-            icon: <RobotOutlined />,
-            color: "#722ed1"
+            title: "Data Scientist",
+            company: "Bell Canada",
+            period: "2021 - 2022",
+            location: "Toronto, Canada",
+            description: "Built intelligent systems bridging research and real-world impact. Developed predictive models for customer analytics and network optimization.",
+            technologies: ["Python", "R", "Scikit-learn", "PostgreSQL", "Tableau"],
+            achievements: ["Increased prediction accuracy by 35%", "Automated 50+ manual processes", "Published 3 research papers"],
+            icon: <CodeOutlined />,
+            color: "#eb2f96"
         },
         {
             title: "Cloud Consultant",
@@ -61,15 +61,15 @@ const Experience = () => {
             color: "#fa8c16"
         },
         {
-            title: "Data Scientist",
-            company: "Bell Canada",
-            period: "2021 - 2022",
-            location: "Toronto, Canada",
-            description: "Built intelligent systems bridging research and real-world impact. Developed predictive models for customer analytics and network optimization.",
-            technologies: ["Python", "R", "Scikit-learn", "PostgreSQL", "Tableau"],
-            achievements: ["Increased prediction accuracy by 35%", "Automated 50+ manual processes", "Published 3 research papers"],
-            icon: <CodeOutlined />,
-            color: "#eb2f96"
+            title: "Generative AI Engineer",
+            company: "Certkor.ai",
+            period: "2023 - 2024",
+            location: "Remote",
+            description: "Designed and implemented scalable AI pipelines and multi-agent frameworks. Led development of conversational AI systems and automated content generation tools.",
+            technologies: ["Python", "TensorFlow", "LangChain", "AWS", "Docker"],
+            achievements: ["Improved model accuracy by 25%", "Reduced processing time by 40%", "Led team of 3 engineers"],
+            icon: <RobotOutlined />,
+            color: "#722ed1"
         }
     ];
 

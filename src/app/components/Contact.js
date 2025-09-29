@@ -126,8 +126,14 @@ const Contact = () => {
             type: "Conference"
         },
         {
+            event: "IBM TechXchange",
+            date: "Oct 9 2025",
+            location: "Orlando, Florida",
+            type: "Conference"
+        },
+        {
             event: "WAT.DEV FEST 2025",
-            date: "oct 17,28 2025",
+            date: "Oct 17,28 2025",
             location: "Waterloo, Canada",
             type: "Conference"
         }
