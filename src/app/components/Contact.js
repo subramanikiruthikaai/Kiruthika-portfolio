@@ -502,7 +502,7 @@ const Contact = () => {
                 </Row>
 
                 {/* Call to Action */}
-                <div style={{
+                {/* <div style={{
                     textAlign: 'center',
                     marginTop: '60px',
                     padding: '40px',
@@ -519,9 +519,7 @@ const Contact = () => {
                         or want to collaborate on research, I&apos;m here to help make it happen.
                     </Paragraph>
                     <Space size="large">
-                        {/* <Button size="large" style={{ background: 'white', color: '#667eea', border: 'none' }}>
-                            Schedule a Call
-                        </Button> */}
+                        
                         <Button
                             size="large"
                             type="default"
@@ -541,6 +539,7 @@ const Contact = () => {
                         </Button>
                     </Space>
                 </div>
+                 */}
             </div>
         </section>
     );
