@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react';
-import { App, message } from 'antd';
-import { Typography, Card, Row, Col, Button, Form, Input, Select, Space, Divider, Tag, Tooltip, message } from 'antd';
+import { Typography, Card, Row, Col, Button, Form, Input, Select, Space, Divider, Tag, Tooltip } from 'antd';
 import {
     MailOutlined,
     LinkedinOutlined,
