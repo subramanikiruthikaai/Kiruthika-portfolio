@@ -1,4 +1,3 @@
-'use client';
 import { Button, Space } from 'antd';
 import { GithubOutlined, RobotOutlined, CloudOutlined, CodeOutlined } from '@ant-design/icons';
 import { personalInfo } from '../data/content';

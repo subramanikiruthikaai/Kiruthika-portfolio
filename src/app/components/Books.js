@@ -1,4 +1,3 @@
-'use client';
 import { Typography, Card, Row, Col, Button, Tag, Space, Rate, Avatar, Divider } from 'antd';
 import {
     BookOutlined,

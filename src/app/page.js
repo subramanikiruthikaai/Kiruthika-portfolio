@@ -1,16 +1,17 @@
 'use client';
 import { useState, useEffect, useCallback } from 'react';
-import { Layout, FloatButton } from 'antd';
+import { Layout, FloatButton, Spin } from 'antd';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
 import Achievements from './components/Achievements';
-import ImageGallery from './components/ImageGallery'; // Added gallery import
+import ImageGallery from './components/ImageGallery';
 import Books from './components/Books';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import { useTheme } from './hooks/useTheme';
+import { useHydrationReady } from './hooks/useHydrationReady';
 import './styles/portfolio.css';
 
 const { Content, Footer } = Layout;
@@ -18,29 +19,25 @@ const { Content, Footer } = Layout;
 export default function Home() {
   const { darkMode, toggleTheme } = useTheme();
   const [activeSection, setActiveSection] = useState('home');
+  const isReady = useHydrationReady(400);
 
-  // Updated sections array to include gallery
   const sections = ['home', 'about', 'experience', 'achievements', 'gallery', 'books', 'projects', 'contact'];
 
-  // Memoize the scroll handler to prevent unnecessary re-renders
   const updateActiveSection = useCallback(() => {
     const headerHeight = 80;
     const scrollPosition = window.scrollY + headerHeight;
 
-    // Find the current section
     for (let i = sections.length - 1; i >= 0; i--) {
       const element = document.getElementById(sections[i]);
       if (element) {
         const elementTop = element.offsetTop;
         const elementBottom = elementTop + element.offsetHeight;
 
-        // Check if current scroll position is within this section
         if (scrollPosition >= elementTop && scrollPosition < elementBottom) {
           setActiveSection(sections[i]);
           break;
         }
 
-        // Special case for the last section
         if (i === sections.length - 1 && scrollPosition >= elementTop) {
           setActiveSection(sections[i]);
           break;
@@ -49,10 +46,8 @@ export default function Home() {
     }
   }, [sections]);
 
-  // Scroll detection with throttling
   useEffect(() => {
     let ticking = false;
-
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -63,15 +58,9 @@ export default function Home() {
       }
     };
 
-    // Initial call to set active section
     updateActiveSection();
-
-    // Add scroll listener
     window.addEventListener('scroll', handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, [updateActiveSection]);
 
   const scrollToSection = useCallback((sectionId) => {
@@ -79,17 +68,33 @@ export default function Home() {
     if (element) {
       const headerHeight = 80;
       const elementPosition = element.offsetTop - headerHeight;
-
-      // Immediately update active section for instant feedback
       setActiveSection(sectionId);
-
       window.scrollTo({
         top: elementPosition,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }, []);
 
+  // 🕓 Delay rendering until styles & theme are ready
+  if (!isReady) {
+    return (
+      <div
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          background: darkMode ? '#1a1a1a' : '#ffffff',
+          transition: 'background 0.3s ease',
+        }}
+      >
+        <Spin tip="Loading..." fullscreen />
+      </div>
+    );
+  }
+
+  // ✅ Render full app after styles load
   return (
     <div className={`portfolio-container ${darkMode ? 'dark-theme' : 'light-theme'}`}>
       <Layout style={{ background: 'var(--bg-primary)' }}>
@@ -105,7 +110,7 @@ export default function Home() {
           <About />
           <Experience />
           <Achievements />
-          <ImageGallery /> {/* Added gallery component */}
+          <ImageGallery />
           <Books />
           <Projects />
           <Contact />
@@ -115,7 +120,7 @@ export default function Home() {
           textAlign: 'center',
           background: 'var(--bg-secondary)',
           color: 'var(--text-secondary)',
-          padding: '40px 20px'
+          padding: '40px 20px',
         }}>
           <div style={{ maxWidth: '600px', margin: '0 auto' }}>
             <p style={{ fontSize: '16px', marginBottom: '12px' }}>

@@ -1,4 +1,4 @@
-'use client';
+
 import { Row, Col, Typography, Card, Tag, Avatar, Divider, Badge, Space } from 'antd';
 import { skills, certifications, personalInfo } from '../data/content';
 

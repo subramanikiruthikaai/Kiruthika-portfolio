@@ -1,4 +1,4 @@
-'use client';
+
 import { Typography, Card, Row, Col, Tag, Space, Divider, Badge } from 'antd';
 import {
     StarOutlined,

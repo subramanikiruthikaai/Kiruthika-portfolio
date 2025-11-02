@@ -1,10 +1,10 @@
+'use client';
 import { useState, useEffect } from 'react';
 
 export const useTheme = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     useEffect(() => {
-        // Check for saved theme preference or default to light mode
         const savedTheme = localStorage.getItem('theme');
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
@@ -16,14 +16,12 @@ export const useTheme = () => {
     }, []);
 
     useEffect(() => {
-        // Apply theme to document
-        document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light');
+        document.documentElement.classList.remove('dark-theme', 'light-theme');
+        document.documentElement.classList.add(darkMode ? 'dark-theme' : 'light-theme');
         localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
 
-    const toggleTheme = () => {
-        setDarkMode(!darkMode);
-    };
+    const toggleTheme = () => setDarkMode(!darkMode);
 
     return { darkMode, toggleTheme };
 };

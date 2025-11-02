@@ -1,4 +1,4 @@
-'use client';
+
 import { Typography, Timeline, Card, Row, Col, Tag, Space } from 'antd';
 import {
     CalendarOutlined,

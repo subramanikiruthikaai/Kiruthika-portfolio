@@ -1,4 +1,3 @@
-'use client';
 import { Typography, Card, Row, Col, Button, Tag, Space, Badge, Tooltip } from 'antd';
 import {
     LinkOutlined,

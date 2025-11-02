@@ -1,7 +1,7 @@
-'use client';
+'use client'
 import { useState } from 'react';
+import { App, message } from 'antd';
 import { Typography, Card, Row, Col, Button, Form, Input, Select, Space, Divider, Tag, Tooltip, message } from 'antd';
-import emailjs from '@emailjs/browser';
 import {
     MailOutlined,
     LinkedinOutlined,
@@ -31,13 +31,6 @@ const { Option } = Select;
 const Contact = () => {
     const [form] = Form.useForm();
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    // EmailJS Configuration - Replace with your actual values
-    const EMAILJS_CONFIG = {
-        serviceId: 'YOUR_SERVICE_ID',        // Replace with your EmailJS service ID
-        templateId: 'YOUR_TEMPLATE_ID',      // Replace with your EmailJS template ID
-        publicKey: 'YOUR_PUBLIC_KEY'         // Replace with your EmailJS public key
-    };
 
     const contactInfo = {
         email: "kiruthikas2020ai@gmail.com",
@@ -119,73 +112,52 @@ const Contact = () => {
     ];
 
     const upcomingEvents = [
-        {
-            event: "DEVFEST DC 2025",
-            date: "Oct 3, 2025",
-            location: "GMU Fuse at Mason Square, DC",
-            type: "Conference"
-        },
-        {
-            event: "IBM TechXchange",
-            date: "Oct 9 2025",
-            location: "Orlando, Florida",
-            type: "Conference"
-        },
-        {
-            event: "WAT.DEV FEST 2025",
-            date: "Oct 17,28 2025",
-            location: "Waterloo, Canada",
-            type: "Conference"
-        }
+        // {
+        //     event: "DEVFEST DC 2025",
+        //     date: "Oct 3, 2025",
+        //     location: "GMU Fuse at Mason Square, DC",
+        //     type: "Conference"
+        // },
+        // {
+        //     event: "IBM TechXchange",
+        //     date: "Oct 9 2025",
+        //     location: "Orlando, Florida",
+        //     type: "Conference"
+        // },
+        // {
+        //     event: "WAT.DEV FEST 2025",
+        //     date: "Oct 17,28 2025",
+        //     location: "Waterloo, Canada",
+        //     type: "Conference"
+        // }
     ];
 
     const onFinish = async (values) => {
         setIsSubmitting(true);
 
         try {
-            // Prepare email parameters
-            const templateParams = {
-                from_name: values.name,
-                from_email: values.email,
-                collaboration_type: values.collaboration,
-                subject: values.subject,
-                message: values.message,
-                to_email: contactInfo.email,
-                // Add timestamp for reference
-                submitted_at: new Date().toLocaleString()
-            };
-
-            // Send email using EmailJS
-            const result = await emailjs.send(
-                EMAILJS_CONFIG.serviceId,
-                EMAILJS_CONFIG.templateId,
-                templateParams,
-                EMAILJS_CONFIG.publicKey
-            );
-
-            console.log('Email sent successfully:', result);
-
-            // Show success message
-            message.success({
-                content: 'Message sent successfully! I\'ll get back to you within 24-48 hours.',
-                duration: 5,
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(values),
             });
 
-            // Reset form
-            form.resetFields();
+            const result = await response.json();
 
+            if (result.success) {
+                form.resetFields();
+            } else {
+                console.info('Connect / Contact Us is not currently available, Please email me if you have any queries');
+            }
         } catch (error) {
-            console.error('Email sending failed:', error);
-
-            // Show error message
-            message.error({
-                content: 'Failed to send message. Please try again or contact me directly via email.',
-                duration: 5,
-            });
+            console.info('Connect / Contact Us is not currently available, Please email me if you have any queries');
         } finally {
             setIsSubmitting(false);
         }
     };
+
 
     const CollaborationCard = ({ collab }) => (
         <Card
@@ -443,41 +415,44 @@ const Contact = () => {
                             </Card>
 
                             {/* Upcoming Events */}
-                            <Card
-                                title={
-                                    <Space>
-                                        <CalendarOutlined style={{ color: '#13c2c2' }} />
-                                        <span>Upcoming Events</span>
+                            {upcomingEvents.length > 0 && (
+                                <Card
+                                    title={
+                                        <Space>
+                                            <CalendarOutlined style={{ color: '#13c2c2' }} />
+                                            <span>Upcoming Events</span>
+                                        </Space>
+                                    }
+                                    variant="borderless"
+                                    style={{
+                                        background: 'var(--bg-primary)',
+                                        border: '1px solid var(--border-color)'
+                                    }}
+                                >
+                                    <Space direction="vertical" size="small" style={{ width: '100%' }}>
+                                        {upcomingEvents.map((event, index) => (
+                                            <div key={index} style={{
+                                                padding: '12px',
+                                                background: 'var(--bg-secondary)',
+                                                borderRadius: '8px',
+                                                border: '1px solid var(--border-color)'
+                                            }}>
+                                                <Space style={{ width: '100%', justifyContent: 'space-between' }}>
+                                                    <div>
+                                                        <Text strong style={{ color: 'var(--text-primary)' }}>{event.event}</Text>
+                                                        <br />
+                                                        <Text type="secondary" style={{ fontSize: '12px' }}>
+                                                            {event.date} • {event.location}
+                                                        </Text>
+                                                    </div>
+                                                    <Tag color="blue" size="small">{event.type}</Tag>
+                                                </Space>
+                                            </div>
+                                        ))}
                                     </Space>
-                                }
-                                variant="borderless"
-                                style={{
-                                    background: 'var(--bg-primary)',
-                                    border: '1px solid var(--border-color)'
-                                }}
-                            >
-                                <Space direction="vertical" size="small" style={{ width: '100%' }}>
-                                    {upcomingEvents.map((event, index) => (
-                                        <div key={index} style={{
-                                            padding: '12px',
-                                            background: 'var(--bg-secondary)',
-                                            borderRadius: '8px',
-                                            border: '1px solid var(--border-color)'
-                                        }}>
-                                            <Space style={{ width: '100%', justifyContent: 'space-between' }}>
-                                                <div>
-                                                    <Text strong style={{ color: 'var(--text-primary)' }}>{event.event}</Text>
-                                                    <br />
-                                                    <Text type="secondary" style={{ fontSize: '12px' }}>
-                                                        {event.date} • {event.location}
-                                                    </Text>
-                                                </div>
-                                                <Tag color="blue" size="small">{event.type}</Tag>
-                                            </Space>
-                                        </div>
-                                    ))}
-                                </Space>
-                            </Card>
+                                </Card>
+                            )}
+
                         </Space>
                     </Col>
                 </Row>
