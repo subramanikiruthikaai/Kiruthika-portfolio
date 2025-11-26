@@ -64,7 +64,7 @@ const Experience = () => {
             title: "Generative AI Engineer",
             company: "Certkor.ai",
             period: "Jan 2025 - Apr 2025",
-            location: "Remote",
+            location: "Montreal, Canada",
             description: "Designed and implemented scalable AI pipelines and multi-agent frameworks. Led development of conversational AI systems and automated content generation tools.",
             technologies: ["Python", "TensorFlow", "LangChain", "AWS", "Docker"],
             achievements: ["Improved model accuracy by 25%", "Reduced processing time by 40%", "Led team of 3 engineers"],
