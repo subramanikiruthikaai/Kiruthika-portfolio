@@ -41,8 +41,8 @@ const Experience = () => {
         {
             title: "Data Scientist",
             company: "Bell Canada",
-            period: "2021 - 2022",
-            location: "Toronto, Canada",
+            period: "Aug 2025 - Present",
+            location: "Montreal, Canada",
             description: "Built intelligent systems bridging research and real-world impact. Developed predictive models for customer analytics and network optimization.",
             technologies: ["Python", "R", "Scikit-learn", "PostgreSQL", "Tableau"],
             achievements: ["Increased prediction accuracy by 35%", "Automated 50+ manual processes", "Published 3 research papers"],
@@ -52,8 +52,8 @@ const Experience = () => {
         {
             title: "Cloud Consultant",
             company: "Amazon Web Services (AWS)",
-            period: "2022 - 2023",
-            location: "Bangalore, India",
+            period: "May 2025 - Jul 2025",
+            location: "Toronto, Canada",
             description: "Specialized in cloud-native AI solutions and MLOps implementations. Helped enterprise clients migrate ML workloads to cloud and optimize their AI infrastructure.",
             technologies: ["AWS SageMaker", "Lambda", "EC2", "S3", "Kubernetes"],
             achievements: ["Managed 15+ client projects", "99.9% uptime achieved", "Cost optimization of 30%"],
@@ -63,7 +63,7 @@ const Experience = () => {
         {
             title: "Generative AI Engineer",
             company: "Certkor.ai",
-            period: "2023 - 2024",
+            period: "Jan 2025 - Apr 2025",
             location: "Remote",
             description: "Designed and implemented scalable AI pipelines and multi-agent frameworks. Led development of conversational AI systems and automated content generation tools.",
             technologies: ["Python", "TensorFlow", "LangChain", "AWS", "Docker"],

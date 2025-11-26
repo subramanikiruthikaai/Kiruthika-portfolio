@@ -82,21 +82,21 @@ export const experience = [
     {
         title: "Generative AI Engineer",
         company: "Certkor.ai",
-        period: "2023 - 2024",
+        period: "Jan 2025 - Apr 2025",
         description: "Designed scalable AI pipelines and multi-agent frameworks",
         type: "work"
     },
     {
         title: "Cloud Consultant",
         company: "AWS",
-        period: "2022 - 2023",
+        period: "May 2025 - Jul 2025",
         description: "Specialized in cloud-native AI solutions and MLOps implementations",
         type: "work"
     },
     {
         title: "Data Scientist",
         company: "Bell",
-        period: "2021 - 2022",
+        period: "Aug 2025 - Present",
         description: "Built intelligent systems bridging research and real-world impact",
         type: "work"
     }
